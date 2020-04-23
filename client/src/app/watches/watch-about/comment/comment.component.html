@@ -1,0 +1,18 @@
+<div class="item">
+    <span class="title"></span>
+    <p><b>
+        <i>{{comment?.user_email}}:
+            <br>
+        </i> {{comment?.updatedAt | date}}<br>
+        {{comment?.text}}
+    </b>
+    </p>
+    <p style="padding: 10px;">
+        <span class="material-icons right" *ngIf="!isDislike" (click)="dislike(true)">thumb_down</span>
+        <span class="material-icons right like" *ngIf="isDislike" (click)="dislike(false)">thumb_down </span>
+        <span class="right">{{comment?.dislike.length}}</span>
+        <span class="material-icons right" *ngIf="!isLike" (click)="like(true)" disabled>thumb_up </span>
+        <span class="material-icons right like" *ngIf="isLike" (click)="like(false)">thumb_up </span>
+        <span class="right">{{comment?.like.length}}</span>
+    </p>
+</div>

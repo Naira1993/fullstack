@@ -1,0 +1,24 @@
+<nav>
+  <div class="nav-wrapper">
+    <a routerLink="/watches" class="brand-logo">Watch shop</a>
+    <a href="#" data-target="slide-out" class="sidenav-trigger" (click)="open()"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a routerLink="/watch-list">Watches</a></li>
+      <li><a routerLink="/add">Add watch</a></li>
+      <li><a routerLink="/cart">Cart</a></li>
+      <li><a routerLink="/orders">Orders</a></li>
+      <li><a routerLink="/auth">Login</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<ul id="slide-out" class="sidenav" #sidenav (click)="close()">
+  <li><a routerLink="/watch-list">Watches</a></li>
+  <li><a routerLink="/add">Add watch</a></li>
+  <li><a routerLink="/cart">Cart</a></li>
+  <li><a routerLink="/orders">Orders</a></li>
+  <li><a routerLink="/auth">Login</a></li>
+  <li><a (click)="logout()">Logout</a></li>
+</ul>

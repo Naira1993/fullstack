@@ -1,0 +1,48 @@
+<ul class="tabs">
+  <li class="tab col s5 offset-s1"><a [ngClass]="{'active': isLogin}"  href="#login">Login</a></li>
+  <li class="tab col s5"><a  [ngClass]="{'active': isLogin}" href="#register">Registration</a></li>
+</ul>
+
+<div id="login" class="col s10  offset-s1" >
+  <br>
+  <form [formGroup]="form1" (ngSubmit)="login()" >
+      <div class="input-field">
+          <input  type="text" formControlName="email">
+          <label for="email">Email</label>
+          <span class="helper-text" *ngIf="form1.get('email').invalid && form1.get('email').touched">Fill valid email</span>
+      </div>
+
+      <div class="input-field">
+          <input  type="password" formControlName="password">
+          <label for="password">Password</label>
+          <span class="helper-text" *ngIf="form1.get('password').invalid && form1.get('password').touched">Enter
+              password</span>
+      </div>
+      <!-- <p><a href="/auth/reset">Забыли пароль?</a></p> -->
+      <button  class="btn btn-primary" type="submit">Log In</button>
+  </form>
+</div>
+
+
+
+<div id="register" class="col s10 offset-s1">
+  <br>
+  <form [formGroup]="form2" (ngSubmit)="registration()">
+      <div class="input-field">
+          <input  type="text" formControlName="email">
+          <label for="email">Email</label>
+          <span class="helper-text" 
+          *ngIf="form2.get('email').invalid && form2.get('email').touched"
+          >Fill valid email</span>
+      </div>
+
+      <div class="input-field">
+          <input  type="password" formControlName="password">
+          <label for="password">Password</label>
+          <span class="helper-text" 
+           *ngIf="form2.get('password').invalid && form2.get('password').touched"
+           >Fill password</span>
+      </div>
+      <button [disabled]="form2.invalid" class="btn btn-primary" type="submit">Save</button>
+  </form>
+</div>

@@ -1,0 +1,58 @@
+.card {
+    margin-top: 100px;
+    width: 500px;
+    height: auto;
+    cursor: pointer;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+span {
+    margin-left: 2rem;
+    font-size: 200%;
+}
+
+.card-action.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-content {
+    text-align: center;
+}
+img {
+    width: 200px;
+}
+
+@media only screen and (max-width: 1250px) {
+    .row {
+        grid-template-columns: auto;
+    }
+
+}
+
+
+@media only screen and (max-width: 570px) {
+    .card {
+        width: 99%;
+    }
+
+    button {
+    margin: 5px;
+    }
+  
+
+    @media only screen and (max-width: 330px) {
+        .card {
+            width: 250px;
+        }
+    
+        button {
+        margin: 5px;
+        }
+      
+      }
+  }

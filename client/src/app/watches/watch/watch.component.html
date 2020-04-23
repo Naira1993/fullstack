@@ -1,0 +1,34 @@
+<app-loading *ngIf="isloading"></app-loading>
+<div *ngIf="!isloading">
+  <div class="row">
+    <div class="card center" style="margin-top: 100px;"
+      *ngFor="let watch of watches |slice:start:end; let index = index">
+      <div class="card-image" routerLink="watch/{{watch.id}}">
+        <img [src]="watch.image">
+        <div class="card-content">
+          <span>{{watch.title}}</span><br>
+          <p> {{watch.model}}</p>
+        </div>
+      </div>
+      <div class="card-content" routerLink="watch/{{watch.id}}">
+        <span>Price: {{watch.price}} $</span>
+      </div>
+      <div class="card-action actions">
+        <button class="btn btn-primary" (click)="update(watch)">
+          Update
+        </button>
+        <button class="btn btn-primary" (click)="buy(watch)">
+          Buy
+        </button>
+      </div>
+    </div>
+  </div>
+  <ul class="pagination center" *ngIf="watches?.length > 4">
+    <li class="waves-effect"><a href="#!" (click)="changePage(false)" *ngIf="page"><i
+          class="material-icons">chevron_left</i></a></li>
+    <li class="waves-effect" *ngFor="let item of pageOfWatches" (click)="setPage(item)"
+      [ngClass]="{'active': page === item }"><a>{{item + 1}}</a></li>
+    <li class="waves-effect" (click)="changePage(true)" *ngIf="page!==pageOfWatches[pageOfWatches.length-1]"><a
+        href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+</div>
